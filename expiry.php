@@ -4,6 +4,7 @@ include 'settings.php';
 //swift mailer include and configuration
 require_once './swiftmailer/lib/swift_required.php';
 
+//outgoing mail server is configured for gmail, change it if needed
 $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
   ->setUsername($mail_username)
   ->setPassword($mail_password);
@@ -364,8 +365,10 @@ try {
     //create the message
     $message = Swift_Message::newInstance();
     //file is standard configured for testpurposes the next line is the one that emails to contacts
-    //$message->setTo(array($mail => $firstname . ' ' . $lastname));   
-    $message->setTo(array("jmjdamen@gmail.com" => "Joost Damen"));
+    //$message->setTo(array($mail => $firstname . ' ' . $lastname));
+    
+    //the TO mailaddress and name are set for testpurposes, for example the service desk address in the settings file   
+    $message->setTo(array($mail_to_address => $mail_to_name));
 
     $message->setSubject("Connection expired");
 
