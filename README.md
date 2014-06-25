@@ -1,6 +1,6 @@
-SURFconext SP Expiry Check
+# SURFconext SP Expiry Check
 
-In the settings.php file you need to set these values
+### In the settings.php file you need to set these values
 
 //db access
 //the user needs access on the 'stats' and 'sr' database
@@ -22,7 +22,7 @@ $mail_from_name = "replace thisisanexample";
 
 --------------------------------------------------------------------------------------
 
-The following values can be changed in expiry.php
+### The following values can be changed in expiry.php
 
 Set the correct outgoing mailserver configuration for Swift Mailer in this line:
 $transporter = Swift_SmtpTransport::newInstance('outgoing.mail.com', 465, 'ssl')
@@ -44,6 +44,8 @@ $nextlogin_value = '14';
 
 --------------------------------------------------------------------------------------
 
+### expired.json
+
 In the expired.json file the entities that are marked as 'expired' are written.
 An email has been sent to the given TO mailaddress as configured in settings.php.
 As mentioned earlier there is an option to use the mailaddress of the contact of each SP.
@@ -59,6 +61,8 @@ This line needs to be uncommented in the code:
 //$message->setTo(array($mail => $firstname . ' ' . $lastname));
 
 --------------------------------------------------------------------------------------
+### remove.json
+
 The remove.json contains entities that had been marked as 'expired' and didn't had a login after the notification.
 You can remove them from service registry (manual) or use the API to remove them automatically.
 
